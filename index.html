@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>cavestory</title>
+    <title>Cave Story</title>
     <style>
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
-      textarea.emscripten { font-family: monospace; width: 100%; }
+      textarea.emscripten { font-family: monospace; width: 80%; }
       div.emscripten { text-align: center; }
       div.emscripten_border { border: 1px solid black; }
       /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
       canvas.emscripten { border: 0px none; background-color: black; }
       .spinner {
-        height: 100%;
-        width: 100%;
+        height: 50px;
+        width: 50px;
         margin: 0px auto;
         -webkit-animation: rotation .8s linear infinite;
         -moz-animation: rotation .8s linear infinite;
@@ -56,7 +56,8 @@
 }
     </style>
   </head>
-  <body>
+  <body style="background-color:black">
+    <font color="white">
    <!--
    <hr/>
    -->
@@ -86,6 +87,13 @@
 	<br/>
     <div class='content' style='text-align:center;font-family:"Trebuchet MS",Helvetica,sans-serif;'>
 		<strong>You need a powerful device for this to run at full speed.</strong>
+		<p>
+			Emscripten is annoying to port things to: one of its biggest limitations is that you can't use any mainloops
+			(the infinite loops a game puts itself in so it runs indefinitely), but Cave Story's engine *heavily* relies
+			on them. On the upside, Emscripten supports SDL2, so I didn't have to rewrite any of the existing backend code.
+		</p>
+		<p>
+			If you're new here, this port is based on CSE2 - the Cave Story decompilation project.
 			<br/><a href='https://github.com/Clownacy/Cave-Story-Engine-2/tree/emscripten'>You can find the source code here.</a>
 		</p>
     </div>
